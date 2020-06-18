@@ -14,7 +14,7 @@
 
 package main
 
-import "wf-cli/cmd"
+import "wavecmd/cmd"
 
 func main() {
 	cmd.Execute()

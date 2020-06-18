@@ -32,7 +32,7 @@ var wavefrontAddress string
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "wf-cli",
+	Use:   "wavecmd",
 	Short: "A quick cli for posting data to wavefront",
 	Long: `This is a cli utility packaged as a single binary to allow for quick wavefront utilities.. For example:
 
@@ -62,7 +62,7 @@ func init() {
 	rootCmd.PersistentFlags().StringVar(&wavefrontAddress, "address", "", "Wavefront Address")
 	viper.BindPFlag("address", rootCmd.PersistentFlags().Lookup("address"))
 
-	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.wf-cli.yaml)")
+	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.wavecmd.yaml)")
 
 	//rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
@@ -80,9 +80,9 @@ func initConfig() {
 			os.Exit(1)
 		}
 
-		// Search config in home directory with name ".wf-cli" (without extension).
+		// Search config in home directory with name ".wavecmd" (without extension).
 		viper.AddConfigPath(home)
-		viper.SetConfigName(".wf-cli")
+		viper.SetConfigName(".wavecmd")
 	}
 
 	viper.AutomaticEnv() // read in environment variables that match
